@@ -1,3 +1,9 @@
+type TableRow = Record<string, string | number | boolean| null | undefined>;
+
+interface TableProps {
+  data: TableRow[];
+}
+
 const headers = [
   "Sr. No.",
   "Comp",
@@ -21,9 +27,9 @@ const headers = [
   "Outp",
   "OT",
   "Dur",
-];
+] as const;
 
-const Table = ({ data }: any) => {
+const Table: React.FC<TableProps> = ({ data }) =>  {
   return (
     <div className="w-full h-[500px] overflow-auto border border-gray-300 shadow-md">
       <table className="min-w-max border-collapse w-full">
